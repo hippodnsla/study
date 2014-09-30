@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="configurationManager" class="org.hippo.sample.spring.ConfigurationManager">
+	<!-- ConfigurationManager(domain:String, properties:Properties) -->
+		<constructor-arg index="0" value="global" />
+		<constructor-arg index="1">
+			<props>
+				<prop key="version">0.0.1_D1-SNAPSHOT</prop>
+				<prop key="database">oracle</prop>
+			</props>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="dataServiceLocator" class="org.hippo.sample.spring.dataservice.DataServiceLocator">
+		<property name="dataServices">
+			<set>
+				<ref bean="informationDataService" />
+			</set>
+		</property>
+	</bean>
+	
+	<bean id="informationDataService" class="org.hippo.sample.spring.dataservice.InformationDataService"
+			init-method="init" destroy-method="destroy" autowire="byType">
+		<!-- <property name="dao" ref="informationDao" /> -->
+	</bean>
+	
+	<bean id="informationDao" class="org.hippo.sample.spring.dao.InformationDaoImpl" />
+	
+	<bean id="calculation" class="org.hippo.sample.spring.calculationservice.Calculation" scope="prototype" lazy-init="true" />
+	
+</beans>
