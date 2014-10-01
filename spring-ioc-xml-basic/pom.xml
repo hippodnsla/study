@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   
   <groupId>org.hippo.sample.spring</groupId>
-  <artifactId>spring-xml-basic</artifactId>
+  <artifactId>spring-ioc-xml-basic</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
   <dependencies>
