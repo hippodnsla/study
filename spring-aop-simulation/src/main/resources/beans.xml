@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans>
+
+	<!-- DAO -->
+	<bean id="userDao" class="org.hippo.sample.spring.dao.impl.UserDaoImpl" />
+	
+	<!-- Services -->
+	<bean id="userService" class="org.hippo.sample.spring.service.UserDataService">
+		<property name="dao" ref="userDao" />
+	</bean>
+	
+</beans>
