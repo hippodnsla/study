@@ -24,6 +24,12 @@ public class TestTest {
 		assertNotNull(userService);
 		
 		userService.addUser(1, "hippo");
+		
+//		try {
+//			userService.getUser(0);
+//		} catch (UnsupportedOperationException e) {
+//			// Do Nothing for test
+//		}
 	}
 
 }

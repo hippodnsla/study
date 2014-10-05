@@ -12,7 +12,7 @@ public class UserDaoImpl implements UserDao {
 	
 	public User get(long id) {
 		LOGGER.debug("UserDaoImpl.get()");
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	public boolean save(User entity) {
