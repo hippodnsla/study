@@ -1,9 +1,12 @@
 package org.hippo.sample.hibernate;
 
+import java.util.Date;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hippo.sample.hibernate.model.Student;
+import org.hippo.sample.hibernate.model.StudentClassTypeE;
 import org.hippo.sample.hibernate.util.HibernateUtil;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,7 +20,7 @@ public class TestDriver {
 	@Test
 	public void test() {
 		
-		Student student = new Student(1, "hippo", 43);
+		Student student = new Student(1, "hippo", 43, "password", new Date(), StudentClassTypeE.Class1);
 		
 		//// Configuration ////
 		// 1. configuration

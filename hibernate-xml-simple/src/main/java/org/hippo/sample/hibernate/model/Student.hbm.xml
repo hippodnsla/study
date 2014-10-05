@@ -10,10 +10,13 @@
 			<generator class="increment" />
 		</id>
 		<property name="name" type="string">
-			<column name="S_NAME" length="12" />
+			<column name="SNAME" length="12" />
 		</property>
 		<property name="age" type="int">
-			<column name="S_AGE" />
+			<column name="SAGE" />
+		</property>
+		<property name="birthday" type="date">
+			<column name="SBIRTHDAY" />
 		</property>
 	</class>
 </hibernate-mapping>
