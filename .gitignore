@@ -10,3 +10,4 @@ RemoteSystemsTempFiles
 # Maven Folders
 target/
 
+*log*
