@@ -1,7 +1,7 @@
-package org.hippo.sample.spring.service;
+package org.hippo.sample.j2se.service;
 
 import org.apache.log4j.Logger;
-import org.hippo.sample.spring.entity.Entity;
+import org.hippo.sample.j2se.entity.Entity;
 
 public class ServiceImpl implements Service {
 

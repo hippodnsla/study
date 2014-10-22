@@ -1,4 +1,4 @@
-package org.hippo.sample.spring.entity;
+package org.hippo.sample.j2se.entity;
 
 public class EntityImpl implements Entity {
 

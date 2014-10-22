@@ -1,4 +1,4 @@
-package org.hippo.sample.spring.performacemonitor;
+package org.hippo.sample.j2se.performacemonitor;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

@@ -1,7 +1,7 @@
-package org.hippo.sample.spring;
+package org.hippo.sample.j2se;
 
-import org.hippo.sample.spring.entity.Entity;
-import org.hippo.sample.spring.entity.EntityImpl;
+import org.hippo.sample.j2se.entity.Entity;
+import org.hippo.sample.j2se.entity.EntityImpl;
 
 public class Driver {
 	

@@ -1,10 +1,10 @@
-package org.hippo.sample.spring;
+package org.hippo.sample.j2se;
 
 import java.lang.reflect.Proxy;
 
-import org.hippo.sample.spring.entity.Entity;
-import org.hippo.sample.spring.performacemonitor.PerformaceMonitor;
-import org.hippo.sample.spring.performacemonitor.PerformanceHandler;
+import org.hippo.sample.j2se.entity.Entity;
+import org.hippo.sample.j2se.performacemonitor.PerformaceMonitor;
+import org.hippo.sample.j2se.performacemonitor.PerformanceHandler;
 
 public class Factory {
 	
