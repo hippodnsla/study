@@ -1,15 +1,19 @@
 package org.hippo.sample.j2ee.log4j;
 
+import static org.junit.Assert.fail;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.apache.log4j.Appender;
-import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.HTMLLayout;
 import org.apache.log4j.Layout;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PatternLayout;
 import org.apache.log4j.RollingFileAppender;
 import org.apache.log4j.SimpleLayout;
+import org.apache.log4j.WriterAppender;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,28 +30,29 @@ public class TestDriver {
 
 	
 	@Test
-	public void testFileAppenderSimpleLayout() {
+	public void testRollingFileAppenderSimpleLayout() {
+		
+		System.out.println("testFileAppenderSimpleLayout()");
 		
 		//// Setup ////
-		//
 		Logger logger = Logger.getLogger(Test.class);
-		// Add a ConsoleAppender that uses PatternLayout using the PatternLayout.TTCC_CONVERSION_PATTERN 
-		// 	and prints to System.out to the root category.
-		Layout layout = new SimpleLayout();
-		Appender appender;
+		
+		
 		try {
-			appender = new RollingFileAppender(layout, "log.txt");
-			((RollingFileAppender)appender).setMaxFileSize("2KB");
+			Layout layout = new SimpleLayout();
+			Appender appender = new RollingFileAppender(layout, "target/log-filerollingappender-simplelayout.log");
+			((RollingFileAppender)appender).setMaxFileSize("1KB");
 			logger.addAppender(appender);
 		} catch (IOException e) {
 			e.printStackTrace();
+			fail();
 		}
-		;
+		
 		// Setup logger level
 		logger.setLevel(Level.DEBUG);
 		
 		//// Request ////
-		for(int i=0; i<10; i++) {
+		for(int i=0; i<100; i++) {
 			logger.debug("This is debug "+i);
 			logger.info("This is info "+i);
 			logger.warn("This is warning "+i);
@@ -57,24 +62,28 @@ public class TestDriver {
 	}
 
 	@Test
-	public void testConsoleAppenderPatternLayout() {
+	public void testWriterAppenderHTMLLayout() {
+
+		System.out.println("testWriterAppenderHTMLLayout()");
 		
 		//// Setup ////
-		//
 		Logger logger = Logger.getLogger(Test.class);
-		// Add a ConsoleAppender that uses PatternLayout using the PatternLayout.TTCC_CONVERSION_PATTERN 
-		// 	and prints to System.out to the root category.
-		Layout layout = new PatternLayout("%t - %m%n");
-		Appender appender = new ConsoleAppender(layout, ConsoleAppender.SYSTEM_OUT);
-		logger.addAppender(appender);
-		//BasicConfigurator.configure();
+
+		try {
+			Layout layout = new HTMLLayout();
+			FileOutputStream stream = new FileOutputStream("target/log-writerappender-htmllayout.htm");
+			Appender appender = new WriterAppender(layout, stream);
+			logger.addAppender(appender);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			fail();
+		}
+		
 		// Setup logger level
 		logger.setLevel(Level.INFO);
 		
 		//// Request ////
-		// request to debug, but will not apply, cause of level is info currently
 		logger.debug("This is debug");
-		// request to info, warn, error, fatal
 		logger.info("This is info");
 		logger.warn("This is warning");
 		logger.error("This is error");
@@ -83,6 +92,8 @@ public class TestDriver {
 
 	@Test
 	public void testConfigurationFile() {
+		
+		System.out.println("testConfigurationFile()");
 		
 		MyClass myClazz = new MyClass();
 		myClazz.MyMethod();
