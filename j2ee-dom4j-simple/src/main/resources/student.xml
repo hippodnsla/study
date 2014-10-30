@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<student xsi:noNamespaceSchemaLocation="4.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<id>0</id>
+	<name title="Mr">
+		<initials>H.P.</initials>
+		<surname>Harry Port</surname>
+	</name>
+	<birth>1977-07-13</birth>
+	<address>23B William St, Camton, British</address>
+	<address>2 Sun Ave, Calialne, British</address>
+	<house>Gryffindor</house>
+	<skill>spells</skill>
+	<skill>flying-broomsticks</skill>
+	<skill>potions</skill>
+	<skill>alchemy</skill>
+</student>
