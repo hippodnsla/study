@@ -68,7 +68,7 @@ public class TestDriver {
 	public void testQueryXMLFile() {
 		
 		XMLQuerier querier = new XMLQuerier();
-		Document document = readXMLDocument(new File("resource/student.xml"));
+		Document document = readXMLDocument(new File("src/main/resources/student.xml"));
 		
 		Node[] list = querier.query(document, "//skill");
 		for(Node n: list)
@@ -78,7 +78,7 @@ public class TestDriver {
 	}
 	
 	private Document readXMLDocument(File file) {
-		XMLQuerier querier = new XMLQuerier();
+		
 		SAXReader reader = new SAXReader();
 		// Read document
 		Document document = null;
