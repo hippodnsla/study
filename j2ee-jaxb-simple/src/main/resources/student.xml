@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<student id="1" name="hippo" grade="GRADE_TWO">
+    <teachers>
+        <teacher id="2" name="lolita"/>
+    </teachers>
+    <remarks>this student is very bad student only know eatting everyday</remarks>
+</student>
